@@ -5,6 +5,24 @@ enem_data <- read_excel("ENEM_AL_EXCEL_AJUS_OK.xlsx")
 
 cidade <- subset(enem_data, NO_MUNICIPIO_RESIDENCIA =='Maceió')
 
+#grafico de pizza: Sexo
+sexo <- table(cidade$TP_SEXO)
+labs <- paste(c("Feminino = ", "Masculino = "),
+              round(sexo/length(cidade$TP_SEXO) * 100, 
+                    digits=2), "%")
+pie(sexo,labels = labs,col = c("pink","blue"),
+    main="Relação dos sexos",
+    cex=1.1)
+
+#grafico de pizza: idades
+idade <- cut(cidade$NU_IDADE, breaks = quantile(cidade$NU_IDADE))
+idade <- table(idade)
+labs <- paste(c("(14,18] = ", "(18,19] = ", "(19,25] = ", "(25,79] = "),round(idade/length(cidade$NU_IDADE) * 100, 
+                    digits=2), "%")
+pie(idade, labels = labs,
+    main="Relação das idades",
+    cex=1.1)
+
 #barplot - Sexo e redação
 notas_redacao.cut <- cut(cidade$NU_NOTA_REDACAO, breaks = quantile(cidade$NU_NOTA_REDACAO))
 sexo_notas <- table(cidade$TP_SEXO,notas_redacao.cut)
