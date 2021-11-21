@@ -57,3 +57,4 @@ matematica_idade <- table(idade.cut,notas_matematica)
 barplot(matematica_idade, main = "Nota de matematica por idade", 
         col=c("green", "blue","red","purple"), beside=TRUE, legend=TRUE, 
         args.legend = list(x = "topright", inset = c(0, -0.4)),ylim = c(0, 10000))
+
