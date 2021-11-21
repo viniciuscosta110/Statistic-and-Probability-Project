@@ -38,7 +38,7 @@ barplot(nota_idade, main = "Nota por idade",
 
 #Barplot - Relação sexo e treineiro
 traineiro_idade <- table(enem_data$IN_TREINEIRO,enem_data$TP_SEXO)
-barplot(traineiro_idade, main = "Relação Treineiro X Sexo", 
+barplot(traineiro_idade, main = "Rela��o Treineiro X Sexo", 
         col=c("purple", "blue"), beside=TRUE, legend=TRUE, 
         args.legend = list(x = "topright", inset = c(0, -0.4)))
 
@@ -46,9 +46,9 @@ barplot(traineiro_idade, main = "Relação Treineiro X Sexo",
 ##resolver o 1000
 notas_redacao.cut <- cut(enem_data$NU_NOTA_REDACAO, breaks = quantile(enem_data$NU_NOTA_REDACAO))
 sexo_notas <- table(enem_data$TP_SEXO,notas_redacao.cut)
-barplot(sexo_notas, main = "Nota Redação dividida por sexo", 
+barplot(sexo_notas, main = "Nota Reda��o dividida por sexo", 
         col=c("purple", "blue"), beside=TRUE, legend=TRUE, 
-        args.legend = list(x = "topright", inset = c(0, -0.4)),ylim = c(0, 12000),cex.axis = 0.8)
+        args.legend = list(x = "topright", inset = c(0, -0.4)),ylim = c(0, 12000),cex.axis = 0.8,names.arg = c("(0,480]","(480,580]","(580,660]","(660,1000]"))
 
 #algoplor - idade - nota de matematica
 notas_matematica <- cut(enem_data$NU_NOTA_MT, breaks = quantile(enem_data$NU_NOTA_MT))
