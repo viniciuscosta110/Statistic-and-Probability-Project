@@ -28,7 +28,7 @@ barplot(sexo_notas, main = "Nota dividido por sexo",
         args.legend = list(x = "topright", inset = c(0, -0.4)),ylim = c(0, 12000))
 
 
-#relacao.cut <- cut(enem_data$TP_SEXO, breaks = quantile(enem_data$TP_SEXO))
+#Barplot - Relação sexo e treineiro
 traineiro_idade <- table(enem_data$IN_TREINEIRO,enem_data$TP_SEXO)
 barplot(traineiro_idade, main = "Relação Treineiro X Sexo", 
         col=c("purple", "blue"), beside=TRUE, legend=TRUE, 
