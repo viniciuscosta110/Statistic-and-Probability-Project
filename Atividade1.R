@@ -1,6 +1,5 @@
 install.packages("readxl")
 library("readxl")
-options(scipen=100)
 enem_data <- read_excel("ENEM_AL_EXCEL_AJUS_OK.xlsx")
 notas_enem <- enem_data["NOTA_ENEN"]
 
@@ -16,10 +15,11 @@ tabelaf <- cbind(freq, freqAc, frequel = round(frequel*100, digits=4), frequelAc
 boxplot(notas_enem, main = "Notas do Enem", col="blue", border="black")
 
 #Histograma Notas_ENEM
-hist(freq, main = "Frequência de notas", 
+teste <- as.numeric(enem_data$NOTA_ENEN)
+hist(teste, main = "Frequência de notas", 
      xlab = "Frequência", ylab = "Quantidade",
      col="blue", border="black",
-     xlim = c(0, 30), ylim = c(0, 8000), cex.axis=0.8)
+     cex.axis=0.8)
 
 #Barplot com quartis (nota e sexo)
 notas.cut <- cut(enem_data$NOTA_ENEN, breaks = quantile(enem_data$NOTA_ENEN))
